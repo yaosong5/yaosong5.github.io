@@ -366,6 +366,9 @@ code {
 #header a:hover {
   color: #38b7ea;
 }
+.fa {
+  padding-right: 4px;
+}
 .header-inner #logo,
 #main-nav,
 #sub-nav,
@@ -432,6 +435,7 @@ code {
 .header-sub .main-nav-link {
   display: inline-block;
   line-height: 48px;
+  font-size: 16px;
 }
 @media screen and (min-width: 560px) and (max-width: 799px) {
   #header-sub {
@@ -480,7 +484,7 @@ code {
   line-height: 40px !important;
 }
 .main-nav-link {
-  font-weight: 300;
+  font-weight: 500;
 }
 @media screen and (min-width: 1200px) {
   #sub-nav {
