@@ -273,29 +273,27 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-
             <script type="text/javascript">
-                            document.getElementById('tocclick').onclick = function(){
-
-                                if($('.toc-article').hasClass('hidden')){
-                                    $('.toc-article').removeClass('hidden');
-                                }else{
-                                    $('.toc-article').addClass('hidden');
-                                }
-                            }
                             function showBtn(){
                              if($('.toc-article').hasClass('hidden')){
                                     $('.toc-article').removeClass('hidden');
                                 }else{
                                     $('.toc-article').addClass('hidden');
                                 }
-                            }
+                                 $('.show-toc-btn').removeClass('hidden');  
+                            };
+                            function showToc(){
+                              if($('.show-toc-btn').hasClass('hidden')){
+                                      $('.show-toc-btn').removeClass('hidden');
+
+
+                                  }else{
+                                      $('.show-toc-btn').addClass('hidden');
+
+                                  }
+                                   $('.toc-article').removeClass('hidden');
+                            };
              </script>
-
-
-
-
-
 
                 google-site-verification: google00655d7c846aab3a.html
             

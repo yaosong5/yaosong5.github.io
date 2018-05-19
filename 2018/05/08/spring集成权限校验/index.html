@@ -9,7 +9,7 @@
     <title>spring集成权限校验 | 钢铁锅</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="shiro简介shiro是权限控制的一个框架是一个强大易用的Java安全框架，提供了认证、授权、加密和会话管理功能，可为任何应用提供安全保障 - 从命令行应用、移动应用到大型网络及企业应用。">
-<meta name="keywords" content="Java,开发,技术">
+<meta name="keywords" content="Java,技术,开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring集成权限校验">
 <meta property="og:url" content="http://gangtieguo.cn/2018/05/08/spring集成权限校验/index.html">
@@ -314,41 +314,41 @@ var _hmt = _hmt || [];
 
 
 
-            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:block">
-                    <span class="btn-bg"></span>
-                    <span class="btn-text"> 文章导航</span>
+            <p class="show-toc-btn hidden" id="show-toc-btn" onclick="showToc();">
+                    <i class="fa fa-align-justify" aria-hidden="true"></i>
+                    <span class="btn-text"> 文章目录</span>
             </p>
-            <div id="toc" class="toc-article">
-                <span id="toc-close" class="toc-close" title="隐藏目录" onclick="showBtn();"> ×</span>
+
+
+            <div id="toc toc-article "  class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏目录" onclick="showBtn();"><i class="fa fa-times" aria-hidden="true"></i></span>
                 <strong class="toc-title">目录</strong>
                 <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#shiro简介"><span class="toc-number">1.</span> <span class="toc-text">shiro简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#权限控制的方式"><span class="toc-number">1.0.1.</span> <span class="toc-text">权限控制的方式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#shiro的使用"><span class="toc-number">2.</span> <span class="toc-text">shiro的使用</span></a></li></ol>
             </div>
 
 
             
-
             <script type="text/javascript">
-                            document.getElementById('tocclick').onclick = function(){
-
-                                if($('.toc-article').hasClass('hidden')){
-                                    $('.toc-article').removeClass('hidden');
-                                }else{
-                                    $('.toc-article').addClass('hidden');
-                                }
-                            }
                             function showBtn(){
                              if($('.toc-article').hasClass('hidden')){
                                     $('.toc-article').removeClass('hidden');
                                 }else{
                                     $('.toc-article').addClass('hidden');
                                 }
-                            }
+                                 $('.show-toc-btn').removeClass('hidden');  
+                            };
+                            function showToc(){
+                              if($('.show-toc-btn').hasClass('hidden')){
+                                      $('.show-toc-btn').removeClass('hidden');
+
+
+                                  }else{
+                                      $('.show-toc-btn').addClass('hidden');
+
+                                  }
+                                   $('.toc-article').removeClass('hidden');
+                            };
              </script>
-
-
-
-
-
 
                 <h1 id="shiro简介"><a href="#shiro简介" class="headerlink" title="shiro简介"></a>shiro简介</h1><p>shiro是权限控制的一个框架<br>是一个强大易用的Java安全框架，提供了认证、授权、加密和会话管理功能，可为任何应用提供安全保障 - 从命令行应用、移动应用到大型网络及企业应用。<br><a id="more"></a></p>
 <h3 id="权限控制的方式"><a href="#权限控制的方式" class="headerlink" title="权限控制的方式"></a><strong>权限控制的方式</strong></h3><p>权限有四种实现方式<br>注解(基于代理),url拦截(基于过滤器),shiro标签库(基于标签),编写代码(及其不推荐)<br><strong>不论哪种方式:都需要引入spring用于整合shiro的过滤器  </strong><br>web.xml中:DelegatingFilterProxy=&gt;spring整合shiro<br>配置spring提供的用于整合shiro框架的过滤器<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>shiroFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.web.filter.DelegatingFilterProxy</span><br><span class="line">   <span class="tag">&lt;/<span class="name">fileter</span>&gt;</span></span><br><span class="line">```  </span><br><span class="line">filet-name需要和**spring配置文件**中的一个BEAN对象的id保持一致**非常重要**  </span><br><span class="line"></span><br><span class="line">###  配置   </span><br><span class="line">I. 注解方式,注解是利用生成的代理对象来完成权限校验:   </span><br><span class="line">spring框架会为当前action对象(加注解的action)创建一个代理对象,如果有权限,就执行这个方法,不然就会报**异常**</span><br><span class="line">(将spring,Strust配置文件丰富:添加权限的注解,struts添加捕获异常,跳转页面)  </span><br><span class="line"> 1. 需要在spring配置文件中进行配置开启注解**DefaultAdvisorAutoProxyCreator**,</span><br><span class="line">  并配置成cjlib方式的注解   </span><br><span class="line">```xml</span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"proxyTargetClass"</span> <span class="attr">value</span>=<span class="string">"true"</span>&gt;</span>\<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure></p>

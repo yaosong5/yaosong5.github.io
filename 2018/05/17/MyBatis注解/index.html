@@ -307,41 +307,41 @@ var _hmt = _hmt || [];
 
 
 
-            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:block">
-                    <span class="btn-bg"></span>
-                    <span class="btn-text"> 文章导航</span>
+            <p class="show-toc-btn hidden" id="show-toc-btn" onclick="showToc();">
+                    <i class="fa fa-align-justify" aria-hidden="true"></i>
+                    <span class="btn-text"> 文章目录</span>
             </p>
-            <div id="toc" class="toc-article">
-                <span id="toc-close" class="toc-close" title="隐藏目录" onclick="showBtn();"> ×</span>
+
+
+            <div id="toc toc-article "  class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏目录" onclick="showBtn();"><i class="fa fa-times" aria-hidden="true"></i></span>
                 <strong class="toc-title">目录</strong>
                 
             </div>
 
 
             
-
             <script type="text/javascript">
-                            document.getElementById('tocclick').onclick = function(){
-
-                                if($('.toc-article').hasClass('hidden')){
-                                    $('.toc-article').removeClass('hidden');
-                                }else{
-                                    $('.toc-article').addClass('hidden');
-                                }
-                            }
                             function showBtn(){
                              if($('.toc-article').hasClass('hidden')){
                                     $('.toc-article').removeClass('hidden');
                                 }else{
                                     $('.toc-article').addClass('hidden');
                                 }
-                            }
+                                 $('.show-toc-btn').removeClass('hidden');  
+                            };
+                            function showToc(){
+                              if($('.show-toc-btn').hasClass('hidden')){
+                                      $('.show-toc-btn').removeClass('hidden');
+
+
+                                  }else{
+                                      $('.show-toc-btn').addClass('hidden');
+
+                                  }
+                                   $('.toc-article').removeClass('hidden');
+                            };
              </script>
-
-
-
-
-
 
                 <p>现接触MyBatic记录一些注解<br><a id="more"></a><br>自动生成主键<br>        可以使用 @Options 注解的 userGeneratedKeys 和 keyProperty 属性让数据库产生 auto_increment（自增长）列的值，然后将生成的值设置到输入参数对象的属性中。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Insert</span>(<span class="string">"insert into students(name,sex,age)  values(#&#123;name&#125;,#&#123;sex&#125;,#&#123;age&#125;"</span>)  </span><br><span class="line"><span class="meta">@Options</span>(useGeneratedKeys = <span class="keyword">true</span>, keyProperty =<span class="string">"userId"</span>)  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">insertUser</span><span class="params">(User user)</span></span>;</span><br></pre></td></tr></table></figure></p>
 <p>将自增的Id存入到userId属性中</p>

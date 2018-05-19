@@ -9,7 +9,7 @@
     <title>linux命令积累 | 钢铁锅</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="简单linux命令">
-<meta name="keywords" content="linux,开发">
+<meta name="keywords" content="开发,linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux命令积累">
 <meta property="og:url" content="http://gangtieguo.cn/2018/05/10/linux命令积累/index.html">
@@ -309,41 +309,41 @@ var _hmt = _hmt || [];
 
 
 
-            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:block">
-                    <span class="btn-bg"></span>
-                    <span class="btn-text"> 文章导航</span>
+            <p class="show-toc-btn hidden" id="show-toc-btn" onclick="showToc();">
+                    <i class="fa fa-align-justify" aria-hidden="true"></i>
+                    <span class="btn-text"> 文章目录</span>
             </p>
-            <div id="toc" class="toc-article">
-                <span id="toc-close" class="toc-close" title="隐藏目录" onclick="showBtn();"> ×</span>
+
+
+            <div id="toc toc-article "  class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏目录" onclick="showBtn();"><i class="fa fa-times" aria-hidden="true"></i></span>
                 <strong class="toc-title">目录</strong>
                 <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件查找"><span class="toc-number">1.</span> <span class="toc-text">文件查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sed"><span class="toc-number">2.</span> <span class="toc-text">sed</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cpu"><span class="toc-number">3.</span> <span class="toc-text">cpu</span></a></li></ol>
             </div>
 
 
             
-
             <script type="text/javascript">
-                            document.getElementById('tocclick').onclick = function(){
-
-                                if($('.toc-article').hasClass('hidden')){
-                                    $('.toc-article').removeClass('hidden');
-                                }else{
-                                    $('.toc-article').addClass('hidden');
-                                }
-                            }
                             function showBtn(){
                              if($('.toc-article').hasClass('hidden')){
                                     $('.toc-article').removeClass('hidden');
                                 }else{
                                     $('.toc-article').addClass('hidden');
                                 }
-                            }
+                                 $('.show-toc-btn').removeClass('hidden');  
+                            };
+                            function showToc(){
+                              if($('.show-toc-btn').hasClass('hidden')){
+                                      $('.show-toc-btn').removeClass('hidden');
+
+
+                                  }else{
+                                      $('.show-toc-btn').addClass('hidden');
+
+                                  }
+                                   $('.toc-article').removeClass('hidden');
+                            };
              </script>
-
-
-
-
-
 
                 <p>简单linux命令<br><a id="more"></a><br><code>nohup   &amp;</code>后台运行</p>
 <h2 id="文件查找"><a href="#文件查找" class="headerlink" title="文件查找"></a>文件查找</h2><p><code>find / -type f -size +10G</code><br>在Linux下如何让文件让按大小单位为M,G等易读格式，S size大小排序。  <code>ls -lhS</code><br><code>du -h * | sort -n</code><br>当然您也可以结合管道文件夹内最大的几个文件  <code>du -h * | sort -n|head</code><br>动态显示机器各端口的链接情况<code>while :; do netstat -apn | grep &quot;:80&quot; | wc -l; sleep 1; done</code><br><img src="https://www.github.com/yaosong5/tuchuang/raw/master/mdtc/2018/5/10/1525939436696.jpg" alt="测试图片"></p>
