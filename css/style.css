@@ -11,21 +11,8 @@ body:after {
 }
 .donate_bar {
   text-align: center;
-  margin-top: 5%;
-}
-.donate_bar2 {
-  z-index: 9999;
-  text-align: center;
-  top: 50%;
-  left: 50%;
-  width: 660px;
-  height: 360px;
-  margin: -180px 0 30px -330px;
-  border-radius: 5px;
-  border: solid 2px #666;
-  background-color: #fff;
-  -webkit-box-shadow: 0 0 10px #666;
-  box-shadow: 0 0 10px #666;
+  background: #fff;
+  --margin-top: 5%;
 }
 .donate_bar a.btn_donate {
   display: inline-block;
@@ -55,25 +42,16 @@ body:after {
   display: none;
 }
 .post-donate {
-  margin-top: 80px;
+  --margin-top: 80px;
 }
-@media screen and (min-width: 559px) {
-  #donate_guide {
-    height: 210px;
-    width: 420px;
-    margin: 0 auto;
-  }
-}
-@media screen and (max-width: 559px) {
-  #donate_guide {
-    height: 420px;
-    width: 210px;
-    margin: 0 auto;
-  }
+#donate_guide {
+  height: 320px;
+  width: 100%;
+  margin: 0 auto;
 }
 #donate_guide img {
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  height: 150px;
 }
 html,
 body,
@@ -737,7 +715,7 @@ code {
 #profile .inner .base-info #avatar {
   display: block;
   margin: 10px auto 20px;
-  width: 128px;
+  width: 180px;
   height: 128px;
 }
 #profile .inner .base-info #name,
@@ -1012,10 +990,20 @@ a.article-title:hover {
 .article-tag .tag-link:before {
   content: "#";
 }
+p .show-toc-btn {
+  float: right;
+  margin: 0 auto;
+  width: 20px;
+  line-height: 24px;
+  border: 1px solid #333;
+}
 .article-entry {
   color: #565a5f;
   padding: 0px 20px;
   line-height: 1.6em;
+}
+.article-entry .hidden {
+  display: none;
 }
 .article-entry:before,
 .article-entry:after {
@@ -1447,7 +1435,7 @@ a.article-title:hover {
 }
 .toc-article .toc-title {
   font-size: 120%;
-  padding: 0.3em 1;
+  padding: 20px;
 }
 .toc-article .toc {
   padding: 0;
@@ -1821,7 +1809,7 @@ a.article-title:hover {
   #sidebar {
     display: inline;
     float: left;
-    width: 21.11111111111111%;
+    width: 26.666666666666668%;
     margin: 0 0.555555555555556%;
   }
 }
