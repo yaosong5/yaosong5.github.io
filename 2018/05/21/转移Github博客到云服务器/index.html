@@ -6,22 +6,20 @@
     <meta charset="utf-8">
     
 
-    <title>linux命令积累 | 钢铁锅</title>
+    <title>部署博客到云服务器 | 钢铁锅</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="简单linux命令">
-<meta name="keywords" content="linux,开发">
+    <meta name="description" content="简单记录转移到博客到云服务器">
+<meta name="keywords" content="Hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux命令积累">
-<meta property="og:url" content="http://gangtieguo.cn/2018/05/10/linux命令积累/index.html">
+<meta property="og:title" content="部署博客到云服务器">
+<meta property="og:url" content="http://gangtieguo.cn/2018/05/21/转移Github博客到云服务器/index.html">
 <meta property="og:site_name" content="钢铁锅">
-<meta property="og:description" content="简单linux命令">
+<meta property="og:description" content="简单记录转移到博客到云服务器">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.github.com/yaosong5/tuchuang/raw/master/mdtc/2018/5/10/1525939436696.jpg">
-<meta property="og:updated_time" content="2018-05-11T05:22:56.238Z">
+<meta property="og:updated_time" content="2018-05-20T17:57:07.830Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux命令积累">
-<meta name="twitter:description" content="简单linux命令">
-<meta name="twitter:image" content="https://www.github.com/yaosong5/tuchuang/raw/master/mdtc/2018/5/10/1525939436696.jpg">
+<meta name="twitter:title" content="部署博客到云服务器">
+<meta name="twitter:description" content="简单记录转移到博客到云服务器">
     
 
     
@@ -246,7 +244,7 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-linux命令积累" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-转移Github博客到云服务器" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -254,7 +252,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            linux命令积累
+            部署博客到云服务器
         </h1>
     
 
@@ -263,17 +261,22 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/05/10/linux命令积累/">
-            <time datetime="2018-05-10T07:37:28.983Z" itemprop="datePublished">2018-05-10</time>
+        <a href="/2018/05/21/转移Github博客到云服务器/">
+            <time datetime="2018-05-20T16:56:17.069Z" itemprop="datePublished">2018-05-21</time>
         </a>
     </div>
 
 
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/博客/">博客</a>
+    </div>
+
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/linux/">linux</a>, <a class="tag-link" href="/tags/开发/">开发</a>
+        <a class="tag-link" href="/tags/Hexo/">Hexo</a>
     </div>
 
                     </div>
@@ -298,7 +301,7 @@ var _hmt = _hmt || [];
             <div id="toc toc-article "  class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏目录" onclick="showBtn();"><i class="fa fa-times" aria-hidden="true"></i></span>
                 <strong class="toc-title">目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件查找"><span class="toc-number">1.</span> <span class="toc-text">文件查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sed"><span class="toc-number">2.</span> <span class="toc-text">sed</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cpu"><span class="toc-number">3.</span> <span class="toc-text">cpu</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#原理"><span class="toc-number">1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-服务器构建"><span class="toc-number">2.</span> <span class="toc-text">1.服务器构建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#监听脚本"><span class="toc-number">2.1.</span> <span class="toc-text">监听脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行脚本"><span class="toc-number">2.2.</span> <span class="toc-text">执行脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后台运行-deploy-js"><span class="toc-number">2.3.</span> <span class="toc-text">后台运行 deploy.js</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-Node-Server-Forever"><span class="toc-number">2.3.1.</span> <span class="toc-text">Run Node Server Forever</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Github配置webhooks"><span class="toc-number">3.</span> <span class="toc-text">2. Github配置webhooks</span></a></li></ol>
             </div>
 
 
@@ -325,10 +328,28 @@ var _hmt = _hmt || [];
                             };
              </script>
 
-                <p>简单linux命令<br><a id="more"></a><br><code>nohup   &amp;</code>后台运行</p>
-<h2 id="文件查找"><a href="#文件查找" class="headerlink" title="文件查找"></a>文件查找</h2><p><code>find / -type f -size +10G</code><br>在Linux下如何让文件让按大小单位为M,G等易读格式，S size大小排序。  <code>ls -lhS</code><br><code>du -h * | sort -n</code><br>当然您也可以结合管道文件夹内最大的几个文件  <code>du -h * | sort -n|head</code><br>动态显示机器各端口的链接情况<code>while :; do netstat -apn | grep &quot;:80&quot; | wc -l; sleep 1; done</code><br><img src="https://www.github.com/yaosong5/tuchuang/raw/master/mdtc/2018/5/10/1525939436696.jpg" alt="测试图片"></p>
-<h2 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h2><p>更改第一行 <code>sed -i &#39;1s/.*//&#39;</code>     sed -i ‘1s/.*/想更改的内容/‘<br>删除第一行<code>sed -i &#39;1d&#39;</code>     sed -i ‘1d’ 文件名<br>插入第一行 <code>sed -i &#39;1i\&#39;</code>       sed -i ‘1i\内容‘ 文件名</p>
-<h2 id="cpu"><a href="#cpu" class="headerlink" title="cpu"></a>cpu</h2><p><code>cat /proc/cpuinfo | grep processor | wc -l</code><br><code>lscpu</code></p>
+                <p>简单记录转移到博客到云服务器<br><a id="more"></a></p>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>我们在自己的电脑上写好博客, 使用 git 发布到代码仓库进行备份, git 仓库接收到 push 请求后, 使用 webhook 配合 nodejs 自动进行服务器端页面的更新.</p>
+<h1 id="1-服务器构建"><a href="#1-服务器构建" class="headerlink" title="1.服务器构建"></a>1.服务器构建</h1><p>服务器端的” 钩子”<br>我们借助一个 node 插件 github-webhook-handler 来快速完成配合 github webhook 的操作, 其他 git 平台也有相应的插件, 如配合 coding 的 coding-webhook-handler.</p>
+<h2 id="监听脚本"><a href="#监听脚本" class="headerlink" title="监听脚本"></a>监听脚本</h2><p>我们借助一个 node 插件 github-webhook-handler 来快速完成配合 github webhook 的操作, 其他 git 平台也有相应的插件, 如配合 coding 的 coding-webhook-handler.<br>使用 npm install -g github-webhook-handler 命令来安装到服务器端.</p>
+<figure class="highlight plain"><figcaption><span>install -g github-webhook-handler```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">切换到服务器站点目录，如我的是 /root/blog,新建一个public目录，将你的github仓库中的master分支pull到该目录中，这个目录作为这个博客的根目录了</span><br></pre></td></tr></table></figure>
+<p>cd /root/blog<br>mkdir public<br>cd public<br>git init<br>git remote add origin <a href="https://github.com/yaosong5/yaosong5.github.io" target="_blank" rel="noopener">https://github.com/yaosong5/yaosong5.github.io</a><br>git pull origin master<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">然后我们创建一个webhooks.js文件，将以下的内容粘贴，这相当于Node.js 服务器的代码构建</span><br><span class="line"></span><br><span class="line">``` javascript</span><br><span class="line">var http = require(&apos;http&apos;)</span><br><span class="line">var createHandler = require(&apos;github-webhook-handler&apos;)</span><br><span class="line">var handler = createHandler(&#123; path: &apos;/&apos;, secret: &apos;yoursecret&apos; &#125;)</span><br><span class="line"></span><br><span class="line">function run_cmd(cmd, args, callback) &#123;</span><br><span class="line">  var spawn = require(&apos;child_process&apos;).spawn;</span><br><span class="line">  var child = spawn(cmd, args);</span><br><span class="line">  var resp = &quot;&quot;;</span><br><span class="line"></span><br><span class="line">  child.stdout.on(&apos;data&apos;, function(buffer) &#123; resp += buffer.toString(); &#125;);</span><br><span class="line">  child.stdout.on(&apos;end&apos;, function() &#123; callback (resp) &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http.createServer(function (req, res) &#123;</span><br><span class="line">  handler(req, res, function (err) &#123;</span><br><span class="line">    res.statusCode = 404</span><br><span class="line">    res.end(&apos;no such location&apos;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;).listen(7777)</span><br><span class="line"></span><br><span class="line">handler.on(&apos;error&apos;, function (err) &#123;</span><br><span class="line">  console.error(&apos;Error:&apos;, err.message)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">handler.on(&apos;push&apos;, function (event) &#123;</span><br><span class="line">  console.log(&apos;Received a push event for %s to %s&apos;,</span><br><span class="line">    event.payload.repository.name,</span><br><span class="line">    event.payload.ref);</span><br><span class="line">    run_cmd(&apos;sh&apos;, [&apos;./deploy.sh&apos;,event.payload.repository.name], function(text)&#123; console.log(text) &#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>注意上段代码中第 3 行 { path: ‘/‘, secret: ‘yoursecret’ } 中 secret 可以改为你喜欢的口令, 这口令将在下面的步骤中起到作用 ,配置github webhooks的时候填入的口令, 请留意. 第 19 行 listen(7777) 中 7777 为监听程序需要使用的端口.</p>
+<h2 id="执行脚本"><a href="#执行脚本" class="headerlink" title="执行脚本"></a>执行脚本</h2><p>上面的 javascript 代码是用来捕捉 github 发来的信号并发起一个执行 ./deploy.sh 的脚本, 接下来我们还需要写 deploy.sh 的内容.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">WEB_PATH=<span class="string">'/root/blog/public'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Start deployment"</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$WEB_PATH</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"pulling source code..."</span></span><br><span class="line">git reset --hard origin/master</span><br><span class="line">git clean -f</span><br><span class="line">git pull</span><br><span class="line">git checkout master</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Finished."</span></span><br></pre></td></tr></table></figure>
+<p>将以上代码的第 3 行改为你服务器中的实际目录. 接下来只需要开启监听就可以了.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tips: 在此之前你可以使用 node deploy.js 来测试一下监听程序是否能够正常运行.</span><br><span class="line">我在这里碰到了一个 node 环境变量的问题, 读取不到 github-webhook-handler 这个模块, 找了很多办法也没有解决, 后来我直接在项目根目录的上级目录安装了这个模块, 问题就解决了.</span><br></pre></td></tr></table></figure>
+<p>cd /var/htdoc/blog<br>npm install github-webhook-handler<br>npm 会从当前目录依次向上寻找含有 node_modules 目录并访问该模块.</p>
+<h2 id="后台运行-deploy-js"><a href="#后台运行-deploy-js" class="headerlink" title="后台运行 deploy.js"></a>后台运行 deploy.js</h2><p>利用 Linux 提供的 nohup 命令，让 webhooks.js 运行在后台</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup node deploy.js &gt; deploy.log &amp;</span><br></pre></td></tr></table></figure>
+<h3 id="Run-Node-Server-Forever"><a href="#Run-Node-Server-Forever" class="headerlink" title="Run Node Server Forever"></a>Run Node Server Forever</h3><p>我在实际使用的时候发现，我的 Node 服务器时不时会自动停掉，具体原因我暂时还没有弄清楚。不过似乎很多人都遇到了这样的困扰，要解决这个问题，forever 是个不错的选择。借助 forever 这个库，它可以保证 Node 持续运行下去，一旦服务器挂了，它都会重启服务器。</p>
+<p>安装 forever：</p>
+<figure class="highlight plain"><figcaption><span>[sudo] npm install -g forever``</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">运行：</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line">cd &#123; 部署服务器的根目录 &#125;</span><br><span class="line"> forever start wehookd.js</span><br></pre></td></tr></table></figure>
+<p> Ubuntu 中原本就有一个叫 node 的包。为了避免冲突，在 Ubuntu 上安装或使用 Node 得用 nodejs 这个名字。而 forever 默认是使用 node 作为执行脚本的程序名。所以为了处理 Ubuntu 存在的这种特殊情况，在启动 forever 时得另外添加一个参数：</p>
+<figure class="highlight plain"><figcaption><span>forever start server.js -c nodejs```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## nginx</span><br><span class="line">npm 安装nginx</span><br><span class="line">启动nginx </span><br><span class="line">service nginx start</span><br><span class="line">nginx -t 查看nginx配置文件</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line">vim /etc/nginx/nginx.conf</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen          80;  # 监听端口</span><br><span class="line">    server_name     localhost;  # 你的域名</span><br><span class="line">    location / &#123;</span><br><span class="line">        root        /root/blog;</span><br><span class="line">        index       index.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>重载 nginx，使配置生效。</p>
+<p><code>nginx -s reload</code></p>
+<h1 id="2-Github配置webhooks"><a href="#2-Github配置webhooks" class="headerlink" title="2. Github配置webhooks"></a>2. Github配置webhooks</h1><p>配置好 Webhook 后，Github 会发送一个 ping 来测试这个地址。如果成功了，那么这个 Webhook 前就会加上一个绿色的勾；如果你得到的是一个红色的叉，那就好好检查一下哪儿出问题了吧！</p>
 
             
 
@@ -407,7 +428,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 
             
     
-        <a href="http://gangtieguo.cn/2018/05/10/linux命令积累/#comments" class="article-comment-link">评论</a>
+        <a href="http://gangtieguo.cn/2018/05/21/转移Github博客到云服务器/#comments" class="article-comment-link">评论</a>
     
 
         </footer>
@@ -416,19 +437,10 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
         
 <nav id="article-nav">
     
-        <a href="/2018/05/17/MyBatis注解/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    MyBatis相关注解
-                
-            </div>
-        </a>
     
-    
-        <a href="/2018/05/08/博客修改备份/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/05/17/MyBatis注解/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">博客备份.md</div>
+            <div class="article-nav-title">MyBatis相关注解</div>
         </a>
     
 </nav>
