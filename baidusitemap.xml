@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://gangtieguo.cn/2018/05/21/%E8%BD%AC%E7%A7%BBGithub%E5%8D%9A%E5%AE%A2%E5%88%B0%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
+    <lastmod>2018-05-21T16:55:01.777Z</lastmod>
+    <data>
+        <display>
+        <title>部署博客到云服务器</title>
+        <pubTime>2018-05-20T16:56:17.069Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="博客" url="http://gangtieguo.cn/categories/%E5%8D%9A%E5%AE%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://gangtieguo.cn/2018/05/21/%E6%B5%8B%E8%AF%95forever/</loc>
     <lastmod>2018-05-21T16:03:14.504Z</lastmod>
     <data>
@@ -19,26 +39,6 @@
            
              
               <breadCrumb title="钢铁锅" url="http://gangtieguo.cn/categories/%E9%92%A2%E9%93%81%E9%94%85/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://gangtieguo.cn/2018/05/21/%E8%BD%AC%E7%A7%BBGithub%E5%8D%9A%E5%AE%A2%E5%88%B0%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
-    <lastmod>2018-05-21T14:25:58.657Z</lastmod>
-    <data>
-        <display>
-        <title>部署博客到云服务器</title>
-        <pubTime>2018-05-20T16:56:17.069Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="博客" url="http://gangtieguo.cn/categories/%E5%8D%9A%E5%AE%A2/"/>
           
         </display>
     </data>
@@ -131,9 +131,9 @@
         
         <tag>Java</tag>
          
-        <tag>开发</tag>
-         
         <tag>技术</tag>
+         
+        <tag>开发</tag>
          
          
            
@@ -155,9 +155,9 @@
         <title>linux命令积累</title>
         <pubTime>2018-05-10T07:37:28.983Z</pubTime>
         
-        <tag>linux</tag>
-         
         <tag>开发</tag>
+         
+        <tag>linux</tag>
          
          
            
