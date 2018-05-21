@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://gangtieguo.cn/2018/05/21/%E8%BD%AC%E7%A7%BBGithub%E5%8D%9A%E5%AE%A2%E5%88%B0%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
-    <lastmod>2018-05-21T16:55:01.777Z</lastmod>
+    <lastmod>2018-05-21T16:55:37.674Z</lastmod>
     <data>
         <display>
         <title>部署博客到云服务器</title>
@@ -18,65 +18,6 @@
              
               <breadCrumb title="博客" url="http://gangtieguo.cn/categories/%E5%8D%9A%E5%AE%A2/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://gangtieguo.cn/2018/05/21/%E6%B5%8B%E8%AF%95forever/</loc>
-    <lastmod>2018-05-21T16:03:14.504Z</lastmod>
-    <data>
-        <display>
-        <title></title>
-        <pubTime>2018-05-21T14:28:47.860Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-        <tag>测试</tag>
-         
-         
-           
-             
-              <breadCrumb title="钢铁锅" url="http://gangtieguo.cn/categories/%E9%92%A2%E9%93%81%E9%94%85/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://gangtieguo.cn/2018/05/21/%E6%B5%8B%E8%AF%95%E5%90%8C%E6%AD%A5/</loc>
-    <lastmod>2018-05-21T01:28:58.756Z</lastmod>
-    <data>
-        <display>
-        <title>测试同步</title>
-        <pubTime>2018-05-21T01:28:58.751Z</pubTime>
-        
-        <tag>测试</tag>
-         
-         
-           
-             
-              <breadCrumb title="测试文档" url="http://gangtieguo.cn/categories/%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%A3/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://gangtieguo.cn/2018/05/21/ttt/</loc>
-    <lastmod>2018-05-20T18:35:00.602Z</lastmod>
-    <data>
-        <display>
-        <title>ttt</title>
-        <pubTime>2018-05-20T18:34:37.247Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-         
-           
         </display>
     </data>
     </url>
@@ -131,9 +72,9 @@
         
         <tag>Java</tag>
          
-        <tag>技术</tag>
-         
         <tag>开发</tag>
+         
+        <tag>技术</tag>
          
          
            
@@ -155,9 +96,9 @@
         <title>linux命令积累</title>
         <pubTime>2018-05-10T07:37:28.983Z</pubTime>
         
-        <tag>开发</tag>
-         
         <tag>linux</tag>
+         
+        <tag>开发</tag>
          
          
            
