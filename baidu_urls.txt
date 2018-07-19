@@ -1,1 +1,1 @@
-http://gangtieguo.cn/2018/07/20/docker搭建hue/
+http://gangtieguo.cn/2018/07/20/Docker中hadoop spark集群搭建/
