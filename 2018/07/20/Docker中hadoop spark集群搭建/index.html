@@ -8,18 +8,20 @@
 
     <title>Docker中hadoop，spark镜像搭建 | 钢铁锅</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="[toc]配置centos集群 hadoop spark组件启动容器各组件版本对应hbase1.2  hive 版本 2.0.0  hbase1.x ZooKeeper 3.4.x is required as of HBase 1.0.0">
+    <meta name="description" content="[toc] 配置centos集群 hadoop spark组件启动容器各组件版本对应hbase1.2  hive 版本 2.0.0  hbase1.x ZooKeeper 3.4.x is required as of HBase 1.0.0">
 <meta name="keywords" content="Docker,Hadoop,Spark">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker中hadoop，spark镜像搭建">
 <meta property="og:url" content="http://gangtieguo.cn/2018/07/20/Docker中hadoop spark集群搭建/index.html">
 <meta property="og:site_name" content="钢铁锅">
-<meta property="og:description" content="[toc]配置centos集群 hadoop spark组件启动容器各组件版本对应hbase1.2  hive 版本 2.0.0  hbase1.x ZooKeeper 3.4.x is required as of HBase 1.0.0">
+<meta property="og:description" content="[toc] 配置centos集群 hadoop spark组件启动容器各组件版本对应hbase1.2  hive 版本 2.0.0  hbase1.x ZooKeeper 3.4.x is required as of HBase 1.0.0">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-19T18:54:47.827Z">
+<meta property="og:image" content="https://www.github.com/yaosong5/tuchuang/raw/master/mdtc/2018/7/20/1532052420904.jpg">
+<meta property="og:updated_time" content="2018-07-20T02:20:13.086Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker中hadoop，spark镜像搭建">
-<meta name="twitter:description" content="[toc]配置centos集群 hadoop spark组件启动容器各组件版本对应hbase1.2  hive 版本 2.0.0  hbase1.x ZooKeeper 3.4.x is required as of HBase 1.0.0">
+<meta name="twitter:description" content="[toc] 配置centos集群 hadoop spark组件启动容器各组件版本对应hbase1.2  hive 版本 2.0.0  hbase1.x ZooKeeper 3.4.x is required as of HBase 1.0.0">
+<meta name="twitter:image" content="https://www.github.com/yaosong5/tuchuang/raw/master/mdtc/2018/7/20/1532052420904.jpg">
     
 
     
@@ -206,11 +208,11 @@ var _hmt = _hmt || [];
         </div>
       <div class="article-info profile-block">
             <div class="article-info-block">
-                14
+                15
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                17
+                18
                 <span>标签</span>
             </div>
         </div>
@@ -328,7 +330,9 @@ var _hmt = _hmt || [];
                             };
              </script>
 
-                <p>[toc]<br><strong>配置centos集群 hadoop spark组件</strong><br>启动容器<br>各组件版本对应<br>hbase1.2  hive 版本 2.0.0  hbase1.x ZooKeeper 3.4.x is required as of HBase 1.0.0</p>
+                <p><img src="https://www.github.com/yaosong5/tuchuang/raw/master/mdtc/2018/7/20/1532052420904.jpg" alt="enter description here"></p>
+<p>[toc]</p>
+<p><strong>配置centos集群 hadoop spark组件</strong><br>启动容器<br>各组件版本对应<br>hbase1.2  hive 版本 2.0.0  hbase1.x ZooKeeper 3.4.x is required as of HBase 1.0.0</p>
 <a id="more"></a>
 <h1 id="拷贝文件到容器"><a href="#拷贝文件到容器" class="headerlink" title="拷贝文件到容器"></a>拷贝文件到容器</h1><p>命令格式<code>docker cp 本地文件路径   容器id或者容器名称:</code><br>将所有组件下载解压并拷贝到容器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">docker cp /Users/yaosong/Downloads/hadoop-2.8.0.tar.gz   yaobigdata:/</span><br><span class="line">docker cp /Users/yaosong/Downloads/spark-2.2.0-bin-without-hadoop.tgz   yaobigdata:/</span><br><span class="line">docker cp /Users/yaosong/Downloads/jdk-8u144-linux-x64.rpm   yaobigdata:/</span><br><span class="line">docker cp /Users/yaosong/Downloads/spark-2.1.0-bin-hadoop2.6.tgz   yaobigdata:/</span><br><span class="line">docker cp  /Users/yaosong/Yao/spark源包/hive yaobigdata:/usr</span><br><span class="line">docker cp /Users/yaosong/Downloads/jdk-8u144-linux-x64.rpm  yaobigdata:/</span><br><span class="line">docker cp /Users/yaosong/Downloads/hadoop-2.8.0.tar.gz  yaobigdata:/</span><br><span class="line">docker cp /Users/yaosong/Downloads/spark-2.2.0-bin-without-hadoop.tgz  yaobigdata:/</span><br><span class="line">docker cp /Users/yaosong/Downloads/spark-2.1.0-bin-hadoop2.6.tgz  yaobigdata:/</span><br><span class="line">docker cp /Users/yaosong/Yao/spark源包/hbase  yaobigdata:/usr</span><br><span class="line">docker cp /Users/yaosong/Yao/spark源包/zk   yaobigdata:/usr</span><br><span class="line">docker cp  /Users/yaosong/Yao/ant    yaobigdata:/usr</span><br><span class="line">docker cp  /Users/yaosong/Yao/maven  yaobigdata:/usr</span><br><span class="line">docker cp  /Users/yaosong/Yao/hue4  yaobigdata:/usr</span><br></pre></td></tr></table></figure></p>
 <h1 id="创建home"><a href="#创建home" class="headerlink" title="创建home"></a>创建home</h1><p><code>vim /etc/profile</code><br>mac: vim ~/.bashrc<br>添加以下内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/java/jdk1.8.0_144/</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> SCALA_HOME=/usr/scala-2.12.3/</span><br><span class="line"><span class="built_in">export</span> HADOOP_HOME=/usr/hadoop</span><br><span class="line"><span class="built_in">export</span> HADOOP_CONFIG_HOME=<span class="variable">$HADOOP_HOME</span>/etc/hadoop</span><br><span class="line"><span class="built_in">export</span> HADOOP_CONF_DIR=<span class="variable">$HADOOP_HOME</span>/etc/hadoop</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$HADOOP_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$HADOOP_HOME</span>/sbin</span><br><span class="line"><span class="built_in">export</span> SPARK_DIST_CLASSPATH=$(hadoop classpath)</span><br><span class="line">SPARK_MASTER_IP=master</span><br><span class="line">SPARK_LOCAL_DIRS=/usr/spark-2.2.0-bin-without-hadoop</span><br><span class="line">SPARK_DRIVER_MEMORY=1G</span><br><span class="line"><span class="built_in">export</span> SPARK_HOME=/usr/spark-2.2.0-bin-without-hadoop</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$SPARK_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$SPARK_HOME</span>/sbin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line">MAVEN_HOME=/usr/maven</span><br><span class="line"><span class="built_in">export</span> MAVEN_HOME</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:<span class="variable">$&#123;MAVEN_HOME&#125;</span>/bin</span><br><span class="line">ANT_HOME=/usr/ant</span><br><span class="line">PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$ANT_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> ANT_HOME PATH</span><br><span class="line">HUE_HOME=/usr/hue4</span><br><span class="line"><span class="built_in">export</span> ZK_HOME=/usr/zk</span><br><span class="line"><span class="built_in">export</span> HBASE_HOME=/usr/hbase</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$HBASE_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$ZK_HOME</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
@@ -444,6 +448,15 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     
         
 <nav id="article-nav">
+    
+        <a href="/2018/07/20/Docker-machine的搭建(与宿主机在同一ip段下)/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Docker-machine的创建
+                
+            </div>
+        </a>
     
     
         <a href="/2018/07/20/docker搭建hue/" id="article-nav-older" class="article-nav-link-wrap">

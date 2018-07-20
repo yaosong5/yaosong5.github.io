@@ -4,16 +4,18 @@
 
     
   <url>
-    <loc>http://gangtieguo.cn/2018/07/20/docker%E6%90%AD%E5%BB%BAhue/</loc>
-    <lastmod>2018-07-19T18:54:58.152Z</lastmod>
+    <loc>http://gangtieguo.cn/2018/07/20/Docker%E4%B8%ADhadoop%20spark%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2018-07-20T02:20:13.086Z</lastmod>
     <data>
         <display>
-        <title>Docker搭建hue</title>
-        <pubTime>2018-07-19T18:19:08.144Z</pubTime>
+        <title>Docker中hadoop，spark镜像搭建</title>
+        <pubTime>2018-07-19T18:53:35.738Z</pubTime>
         
         <tag>Docker</tag>
          
-        <tag>Hue</tag>
+        <tag>Hadoop</tag>
+         
+        <tag>Spark</tag>
          
          
            
@@ -26,18 +28,38 @@
 
     
   <url>
-    <loc>http://gangtieguo.cn/2018/07/20/Docker%E4%B8%ADhadoop%20spark%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2018-07-19T18:54:47.827Z</lastmod>
+    <loc>http://gangtieguo.cn/2018/07/20/Docker-machine%E7%9A%84%E6%90%AD%E5%BB%BA(%E4%B8%8E%E5%AE%BF%E4%B8%BB%E6%9C%BA%E5%9C%A8%E5%90%8C%E4%B8%80ip%E6%AE%B5%E4%B8%8B)/</loc>
+    <lastmod>2018-07-19T19:05:36.555Z</lastmod>
     <data>
         <display>
-        <title>Docker中hadoop，spark镜像搭建</title>
-        <pubTime>2018-07-19T18:53:35.738Z</pubTime>
+        <title>Docker-machine的创建</title>
+        <pubTime>2018-07-19T19:02:08.124Z</pubTime>
         
         <tag>Docker</tag>
          
-        <tag>Hadoop</tag>
+        <tag>Docker-machine</tag>
          
-        <tag>Spark</tag>
+         
+           
+             
+              <breadCrumb title="部署安装" url="http://gangtieguo.cn/categories/%E9%83%A8%E7%BD%B2%E5%AE%89%E8%A3%85/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://gangtieguo.cn/2018/07/20/docker%E6%90%AD%E5%BB%BAhue/</loc>
+    <lastmod>2018-07-19T18:54:58.152Z</lastmod>
+    <data>
+        <display>
+        <title>Docker搭建hue</title>
+        <pubTime>2018-07-19T18:19:08.144Z</pubTime>
+        
+        <tag>Docker</tag>
+         
+        <tag>Hue</tag>
          
          
            
