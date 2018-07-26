@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://gangtieguo.cn/2018/05/22/git%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2018-07-25T09:50:05.766Z</lastmod>
+    <lastmod>2018-07-26T05:21:48.258Z</lastmod>
     <data>
         <display>
         <title>git命令总结</title>
@@ -15,6 +15,28 @@
          
          
            
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://gangtieguo.cn/2018/07/20/docker%E6%90%AD%E5%BB%BAhue/</loc>
+    <lastmod>2018-07-26T05:21:34.579Z</lastmod>
+    <data>
+        <display>
+        <title>Docker搭建hue</title>
+        <pubTime>2018-07-19T18:19:08.144Z</pubTime>
+        
+        <tag>Docker</tag>
+         
+        <tag>Hue</tag>
+         
+         
+           
+             
+              <breadCrumb title="部署安装" url="http://gangtieguo.cn/categories/%E9%83%A8%E7%BD%B2%E5%AE%89%E8%A3%85/"/>
+          
         </display>
     </data>
     </url>
@@ -55,28 +77,6 @@
         <tag>Docker</tag>
          
         <tag>Docker-machine</tag>
-         
-         
-           
-             
-              <breadCrumb title="部署安装" url="http://gangtieguo.cn/categories/%E9%83%A8%E7%BD%B2%E5%AE%89%E8%A3%85/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://gangtieguo.cn/2018/07/20/docker%E6%90%AD%E5%BB%BAhue/</loc>
-    <lastmod>2018-07-19T18:54:58.152Z</lastmod>
-    <data>
-        <display>
-        <title>Docker搭建hue</title>
-        <pubTime>2018-07-19T18:19:08.144Z</pubTime>
-        
-        <tag>Docker</tag>
-         
-        <tag>Hue</tag>
          
          
            

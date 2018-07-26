@@ -8,18 +8,18 @@
 
     <title>git命令总结 | 钢铁锅</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="将博客源文件加入到仓库  git add .git commit -m “ “git push origin mastergit push origin master -f  查看分支git branch检出分支 git checkout master切换分支 Switched to branch &amp;#39;master&amp;#39;合并分支 git merge dev删除分支 git branch">
+    <meta name="description" content="提交 git add .git commit -m “ “git push origin mastergit push origin master -f  拉取git pull &amp;lt;远程主机名&amp;gt; &amp;lt;远程分支名&amp;gt;:&amp;lt;本地分支名&amp;gt;如拉取远程的 master 分支到本地 wy 分支：git pull origin master:wy 分支切换">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git命令总结">
 <meta property="og:url" content="http://gangtieguo.cn/2018/05/22/git命令总结/index.html">
 <meta property="og:site_name" content="钢铁锅">
-<meta property="og:description" content="将博客源文件加入到仓库  git add .git commit -m “ “git push origin mastergit push origin master -f  查看分支git branch检出分支 git checkout master切换分支 Switched to branch &amp;#39;master&amp;#39;合并分支 git merge dev删除分支 git branch">
+<meta property="og:description" content="提交 git add .git commit -m “ “git push origin mastergit push origin master -f  拉取git pull &amp;lt;远程主机名&amp;gt; &amp;lt;远程分支名&amp;gt;:&amp;lt;本地分支名&amp;gt;如拉取远程的 master 分支到本地 wy 分支：git pull origin master:wy 分支切换">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-25T09:50:05.766Z">
+<meta property="og:updated_time" content="2018-07-26T05:21:48.258Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git命令总结">
-<meta name="twitter:description" content="将博客源文件加入到仓库  git add .git commit -m “ “git push origin mastergit push origin master -f  查看分支git branch检出分支 git checkout master切换分支 Switched to branch &amp;#39;master&amp;#39;合并分支 git merge dev删除分支 git branch">
+<meta name="twitter:description" content="提交 git add .git commit -m “ “git push origin mastergit push origin master -f  拉取git pull &amp;lt;远程主机名&amp;gt; &amp;lt;远程分支名&amp;gt;:&amp;lt;本地分支名&amp;gt;如拉取远程的 master 分支到本地 wy 分支：git pull origin master:wy 分支切换">
     
 
     
@@ -296,7 +296,7 @@ var _hmt = _hmt || [];
             <div id="toc toc-article "  class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏目录" onclick="showBtn();"><i class="fa fa-times" aria-hidden="true"></i></span>
                 <strong class="toc-title">目录</strong>
-                
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#提交"><span class="toc-number">1.</span> <span class="toc-text">提交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拉取"><span class="toc-number">2.</span> <span class="toc-text">拉取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分支切换"><span class="toc-number">3.</span> <span class="toc-text">分支切换</span></a></li></ol>
             </div>
 
 
@@ -323,11 +323,12 @@ var _hmt = _hmt || [];
                             };
              </script>
 
-                <p>将博客源文件加入到仓库</p>
-<blockquote>
+                <h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><blockquote>
 <p>git add .<br>git commit -m “ “<br>git push origin master<br>git push origin master -f</p>
 </blockquote>
-<p>查看分支<code>git branch</code><br>检出分支 <code>git checkout master</code><br>切换分支 <code>Switched to branch &#39;master&#39;</code><br>合并分支 <code>git merge dev</code><br>删除分支 <code>git branch -d dev</code><br><a id="more"></a></p>
+<h2 id="拉取"><a href="#拉取" class="headerlink" title="拉取"></a>拉取</h2><p>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;<br>如拉取远程的 master 分支到本地 wy 分支：<br>git pull origin master:wy</p>
+<h2 id="分支切换"><a href="#分支切换" class="headerlink" title="分支切换"></a>分支切换</h2><a id="more"></a>
+<p>查看分支：git branch<br>创建分支：git branch <name><br>切换分支：git checkout <name><br>创建 + 切换分支：git checkout -b <name><br>合并某分支到当前分支：git merge <name><br>删除分支：git branch -d <name></name></name></name></name></name></p>
 
             
 
