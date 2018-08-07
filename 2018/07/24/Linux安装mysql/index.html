@@ -8,18 +8,18 @@
 
     <title>Linux安装mysql | 钢铁锅</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="12345678910111213141516171819yum install -y mysql-serverchkconfig --add mysqldchkconfig mysqld onchkconfig --list mysqldservice mysqld startmysql -u root -pEnter password:           //默认密码为空，输入后回车即可se">
+    <meta name="description" content="在linux yum安装mysql">
 <meta name="keywords" content="Linux,Mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux安装mysql">
 <meta property="og:url" content="http://gangtieguo.cn/2018/07/24/Linux安装mysql/index.html">
 <meta property="og:site_name" content="钢铁锅">
-<meta property="og:description" content="12345678910111213141516171819yum install -y mysql-serverchkconfig --add mysqldchkconfig mysqld onchkconfig --list mysqldservice mysqld startmysql -u root -pEnter password:           //默认密码为空，输入后回车即可se">
+<meta property="og:description" content="在linux yum安装mysql">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-06T18:18:12.944Z">
+<meta property="og:updated_time" content="2018-08-07T03:25:27.255Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux安装mysql">
-<meta name="twitter:description" content="12345678910111213141516171819yum install -y mysql-serverchkconfig --add mysqldchkconfig mysqld onchkconfig --list mysqldservice mysqld startmysql -u root -pEnter password:           //默认密码为空，输入后回车即可se">
+<meta name="twitter:description" content="在linux yum安装mysql">
     
 
     
@@ -192,58 +192,10 @@ var _hmt = _hmt || [];
 </header>
 
         <div class="outer">
-            
-                
-
-<aside id="profile" class="profile-fixed">
-    <div class="inner profile-inner">
-        <div class="base-info profile-block">
-            <img id="avatar" src="/css/images/badboygq.jpg" />
-            <h2 id="name">GTG</h2>
-            <h3 id="title">Nothing</h3>
-            <span id="location"><i class="fa fa-map-marker"></i>四海为家</span>
-            <a id="follow" target="_blank" href="https://weibo.com/gangtieguo/">关注我</a>
-        </div>
-      <div class="article-info profile-block">
-            <div class="article-info-block">
-                27
-                <span>文章</span>
-            </div>
-            <div class="article-info-block">
-                31
-                <span>标签</span>
-            </div>
-        </div>
-        
-        <div class="profile-block social-links">
-            <table>
-                <tr>
-                    
-                    
-                    <td>
-                        <a href="https://github.com/yaosong5" target="_blank" title="github" class=tooltip>
-                            <i class="fa fa-github"></i>
-                        </a>
-                    </td>
-                    
-                    <td>
-                        <a href="https://weibo.com/gangtieguo/" target="_blank" title="weibo" class=tooltip>
-                            <i class="fa fa-weibo"></i>
-                        </a>
-                    </td>
-                    
-                </tr>
-            </table>
-        </div>
-
-        
-        
-    </div>
-
-
-</aside>
+             
 
             
+
             <section id="main"><article id="post-Linux安装mysql" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -328,7 +280,9 @@ var _hmt = _hmt || [];
                             };
              </script>
 
-                <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">yum install -y mysql-server</span><br><span class="line">chkconfig --add mysqld</span><br><span class="line">chkconfig mysqld on</span><br><span class="line">chkconfig --list mysqld</span><br><span class="line">service mysqld start</span><br><span class="line">mysql -u root -p</span><br><span class="line">Enter password:           //默认密码为空，输入后回车即可</span><br><span class="line"><span class="built_in">set</span> password <span class="keyword">for</span> root@localhost=password(<span class="string">'root'</span>); 　　密码设置为root</span><br><span class="line"><span class="built_in">set</span> password <span class="keyword">for</span> root@=password(<span class="string">'root'</span>);</span><br><span class="line">默认情况下Mysql只允许本地登录，所以只需配置root@localhost就好</span><br><span class="line">设置所有ip访问密码为root</span><br><span class="line"><span class="built_in">set</span> password <span class="keyword">for</span> root@%=password(<span class="string">'root'</span>); 　　　　　　密码设置为root （其实这一步可以不配）</span><br><span class="line">设置master访问密码为root</span><br><span class="line"><span class="built_in">set</span> password <span class="keyword">for</span> root@master=password(<span class="string">'root'</span>); 　　密码设置为root （其实这一步可以不配）</span><br><span class="line">查询密码</span><br><span class="line">select user,host,password from mysql.user;  　　查看密码是否设置成功</span><br><span class="line">设置所有ip可以通过root访问</span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO <span class="string">'root'</span>@<span class="string">'%'</span> IDENTIFIED BY <span class="string">'root'</span> WITH GRANT OPTION;</span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO <span class="string">'hive'</span>@<span class="string">'%'</span> IDENTIFIED BY <span class="string">'hive'</span> WITH GRANT OPTION;</span><br></pre></td></tr></table></figure>
+                <p>在linux yum安装mysql</p>
+<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">yum install -y mysql-server</span><br><span class="line">chkconfig --add mysqld</span><br><span class="line">chkconfig mysqld on</span><br><span class="line">chkconfig --list mysqld</span><br><span class="line">service mysqld start</span><br><span class="line">mysql -u root -p</span><br><span class="line">Enter password:           //默认密码为空，输入后回车即可</span><br><span class="line"><span class="built_in">set</span> password <span class="keyword">for</span> root@localhost=password(<span class="string">'root'</span>); 　　密码设置为root</span><br><span class="line"><span class="built_in">set</span> password <span class="keyword">for</span> root@=password(<span class="string">'root'</span>);</span><br><span class="line">默认情况下Mysql只允许本地登录，所以只需配置root@localhost就好</span><br><span class="line">设置所有ip访问密码为root</span><br><span class="line"><span class="built_in">set</span> password <span class="keyword">for</span> root@%=password(<span class="string">'root'</span>); 　　　　　　密码设置为root （其实这一步可以不配）</span><br><span class="line">设置master访问密码为root</span><br><span class="line"><span class="built_in">set</span> password <span class="keyword">for</span> root@master=password(<span class="string">'root'</span>); 　　密码设置为root （其实这一步可以不配）</span><br><span class="line">查询密码</span><br><span class="line">select user,host,password from mysql.user;  　　查看密码是否设置成功</span><br><span class="line">设置所有ip可以通过root访问</span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO <span class="string">'root'</span>@<span class="string">'%'</span> IDENTIFIED BY <span class="string">'root'</span> WITH GRANT OPTION;</span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO <span class="string">'hive'</span>@<span class="string">'%'</span> IDENTIFIED BY <span class="string">'hive'</span> WITH GRANT OPTION;</span><br></pre></td></tr></table></figure>
 
             
 

@@ -185,7 +185,7 @@ code {
   background-color: #f8f8f8;
 }
 .outer {
-  max-width: 1820px;
+  max-width: 1620px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -235,12 +235,16 @@ code {
   #main {
     display: inline;
     float: left;
-    width: 65.55555555555556%;
-    margin: 0 0.555555555555556%;
+    width: 61.25000000000001%;
+    margin: 0 0.625%;
   }
 }
 @media screen and (min-width: 800px) and (max-width: 1199px) {
   #main {
+    display: inline;
+    float: left;
+    width: 55.00000000000001%;
+    margin: 0 0.625%;
     width: 100%;
   }
 }
@@ -693,8 +697,8 @@ code {
 #profile {
   display: inline;
   float: left;
-  width: 15.555555555555555%;
-  margin: 0 0.555555555555556%;
+  width: 17.5%;
+  margin: 0 0.625%;
   display: none;
   margin: 0px;
   margin-bottom: 40px;
@@ -1835,16 +1839,16 @@ a.article-title:hover {
   #sidebar {
     display: inline;
     float: left;
-    width: 15.555555555555555%;
-    margin: 0 0.555555555555556%;
+    width: 17.5%;
+    margin: 0 0.625%;
   }
 }
 @media screen and (min-width: 800px) and (max-width: 1199px) {
   #sidebar {
     display: inline;
     float: left;
-    width: 26.666666666666668%;
-    margin: 0 0.555555555555556%;
+    width: 30%;
+    margin: 0 0.625%;
   }
 }
 .widget {
