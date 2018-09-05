@@ -9,14 +9,14 @@
     <title>Spark-on-Yarn源码解析(四)Spark业务代码的执行及其任务分配调度stage划分 | 钢铁锅</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="spark-on-yarn系列Spark-on-Yarn 源码解析 (一)Yarn 任务解析Yarn任务解析/“)Spark-on-Yarn 源码解析 (二)Spark-Submit 解析Spark-Submit解析/“)Spark-on-Yarn 源码解析 (三)client 做的事情client做的事情/“)Spark-on-Yarn 源码解析 (四)Spark 业务代码的执行及其任务分配调度">
-<meta name="keywords" content="原理,Spark">
+<meta name="keywords" content="Spark,原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark-on-Yarn源码解析(四)Spark业务代码的执行及其任务分配调度stage划分">
 <meta property="og:url" content="http://gangtieguo.cn/2018/09/04/Spark-on-Yarn源码解析(四)Spark业务代码的执行及其任务分配调度stage划分/index.html">
 <meta property="og:site_name" content="钢铁锅">
 <meta property="og:description" content="spark-on-yarn系列Spark-on-Yarn 源码解析 (一)Yarn 任务解析Yarn任务解析/“)Spark-on-Yarn 源码解析 (二)Spark-Submit 解析Spark-Submit解析/“)Spark-on-Yarn 源码解析 (三)client 做的事情client做的事情/“)Spark-on-Yarn 源码解析 (四)Spark 业务代码的执行及其任务分配调度">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-04T10:16:15.370Z">
+<meta property="og:updated_time" content="2018-09-05T17:08:41.134Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark-on-Yarn源码解析(四)Spark业务代码的执行及其任务分配调度stage划分">
 <meta name="twitter:description" content="spark-on-yarn系列Spark-on-Yarn 源码解析 (一)Yarn 任务解析Yarn任务解析/“)Spark-on-Yarn 源码解析 (二)Spark-Submit 解析Spark-Submit解析/“)Spark-on-Yarn 源码解析 (三)client 做的事情client做的事情/“)Spark-on-Yarn 源码解析 (四)Spark 业务代码的执行及其任务分配调度">
@@ -207,7 +207,7 @@ var _hmt = _hmt || [];
         </div>
       <div class="article-info profile-block">
             <div class="article-info-block">
-                59
+                61
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -405,7 +405,7 @@ var _hmt = _hmt || [];
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">//TODO  DAG提交stage给TaskScheduler 会将stage转换成taskSet</span></span><br><span class="line">  <span class="keyword">private</span> <span class="function"><span class="keyword">def</span> <span class="title">submitMissingTasks</span></span>(stage: <span class="type">Stage</span>, jobId: <span class="type">Int</span>) &#123;</span><br><span class="line">...</span><br><span class="line"><span class="comment">//TODO 创建多少个Task</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> tasks: <span class="type">Seq</span>[<span class="type">Task</span>[_]] = <span class="keyword">if</span> (stage.isShuffleMap) &#123;</span><br><span class="line">      partitionsToCompute.map &#123; id =&gt;</span><br><span class="line">        <span class="comment">//TODO 数据存储的最佳位置   移动计算，而不是移动数据</span></span><br><span class="line">        <span class="keyword">val</span> locs = getPreferredLocs(stage.rdd, id)</span><br><span class="line">        <span class="keyword">val</span> part = stage.rdd.partitions(id)</span><br><span class="line">        <span class="comment">//TODO 从上游拉取数据</span></span><br><span class="line">        <span class="keyword">new</span> <span class="type">ShuffleMapTask</span>(stage.id, taskBinary, part, locs)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">val</span> job = stage.resultOfJob.get</span><br><span class="line">      partitionsToCompute.map &#123; id =&gt;</span><br><span class="line">        <span class="keyword">val</span> p: <span class="type">Int</span> = job.partitions(id)</span><br><span class="line">        <span class="keyword">val</span> part = stage.rdd.partitions(p)</span><br><span class="line">        <span class="keyword">val</span> locs = getPreferredLocs(stage.rdd, p)</span><br><span class="line">        <span class="comment">//TODO  将数据写入某个介质里面，nosql hdfs 等等</span></span><br><span class="line">        <span class="keyword">new</span> <span class="type">ResultTask</span>(stage.id, taskBinary, part, locs, id)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//TODO task的数量最好和分区数一样  如果分区数大于0</span></span><br><span class="line"> <span class="comment">//TODO task的数量最好和分区数一样  如果分区数大于0</span></span><br><span class="line">    <span class="keyword">if</span> (tasks.size &gt; <span class="number">0</span>) &#123;</span><br><span class="line">      logInfo(<span class="string">"Submitting "</span> + tasks.size + <span class="string">" missing tasks from "</span> + stage + <span class="string">" ("</span> + stage.rdd + <span class="string">")"</span>)</span><br><span class="line">      stage.pendingTasks ++= tasks</span><br><span class="line"></span><br><span class="line">      <span class="comment">//TODO 调用taskScheduler的submitTasks提交taskSet 现在将task转换成一个array</span></span><br><span class="line">taskScheduler.submitTasks(<span class="keyword">new</span> <span class="type">TaskSet</span>(</span><br><span class="line">        tasks.toArray, stage.id, stage.latestInfo.attemptId, stage.firstJobId, properties))</span><br><span class="line">      stage.latestInfo.submissionTime = <span class="type">Some</span>(clock.getTimeMillis())</span><br><span class="line">      .....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="TaskScheduler-amp-amp-TaskSchedulerBackend"><a href="#TaskScheduler-amp-amp-TaskSchedulerBackend" class="headerlink" title="TaskScheduler &amp;&amp; TaskSchedulerBackend"></a>TaskScheduler &amp;&amp; TaskSchedulerBackend</h2><p>上文分析到在 DAGScheduler 中最终会执行 taskScheduler.submitTasks() 方法，我们先简单看一下从这里开始往下的执行逻辑：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">①taskScheduler.submitTasks()</span><br><span class="line">    -&gt;②schedulableBuilder.addTaskSetManager() 调度模式，是先来先服务还是公平调度模式</span><br><span class="line">    -&gt;③CoarseGrainedSchedulerBackend.reviveOffers() 这个是向driverActor发送消息driverActor ! ReviveOffers</span><br><span class="line">        -&gt;④CoarseGrainedSchedulerBackend.receiveWithLogging 这是driverActor接收消息的部分</span><br><span class="line">            -&gt;⑤CoarseGrainedSchedulerBackend.makeOffers() //case ReviveOffers =&gt;makeOffers()</span><br><span class="line">        这个模式匹配会调用maksOffers方法</span><br><span class="line">                -&gt;⑥launchTasks()调用launchTask向Executor提交task</span><br><span class="line">                    -&gt;⑦ executorData.executorActor ! LaunchTask(new SerializableBuffer(serializedTask))向executor发送序列化好的task，发送一个Task</span><br></pre></td></tr></table></figure>
-<p>步骤一、二中主要将这组<br>任务的 TaskSet 加入到一个 TaskSetManager 中。TaskSetManager 会根据数据就近原则为 task 分配计算资源，监控 task 的执行状态等，比如失败重试，推测执行等。<br>步骤三、四逻辑较为简单。<br>步骤五为每个 task 具体分配资源，它的输入是一个 Executor 的列表，输出是 TaskDescription 的二维数组。TaskDescription 包含了 TaskID, Executor ID 和 task 执行的依赖信息等。<br>步骤六、七就是将任务真正的发送到 executor 中执行了，并等待 executor 的状态返回。</p>
+<p>步骤一、二中主要将这组任务的 TaskSet 加入到一个 TaskSetManager 中。TaskSetManager 会根据数据就近原则为 task 分配计算资源，监控 task 的执行状态等，比如失败重试，推测执行等。<br>步骤三、四逻辑较为简单。<br>步骤五为每个 task 具体分配资源，它的输入是一个 Executor 的列表，输出是 TaskDescription 的二维数组。TaskDescription 包含了 TaskID, Executor ID 和 task 执行的依赖信息等。<br>步骤六、七就是将任务真正的发送到 executor 中执行了，并等待 executor 的状态返回。</p>
 <p>​                 </p>
 
             
@@ -493,6 +493,15 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     
         
 <nav id="article-nav">
+    
+        <a href="/2018/09/06/SparkSql的使用/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    SparkSQL使用
+                
+            </div>
+        </a>
     
     
         <a href="/2018/09/04/Spark-on-Yarn源码解析(三)client做的事情/" id="article-nav-older" class="article-nav-link-wrap">
