@@ -8,18 +8,18 @@
 
     <title>Hadoop零碎知识点 | 钢铁锅</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="[TOC]">
+    <meta name="description" content="[TOC] 查看元数据信息可以通过hdfs的一个工具来查看edits中的信息 12bin/hdfs oev -i edits -o edits.xmlbin/hdfs oiv -i fsimage_0000000000000000087 -p XML -o fsimage.xml">
 <meta name="keywords" content="Hadoop,原理,HDFS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hadoop零碎知识点">
 <meta property="og:url" content="http://gangtieguo.cn/2018/08/16/Hadoop零碎知识点/index.html">
 <meta property="og:site_name" content="钢铁锅">
-<meta property="og:description" content="[TOC]">
+<meta property="og:description" content="[TOC] 查看元数据信息可以通过hdfs的一个工具来查看edits中的信息 12bin/hdfs oev -i edits -o edits.xmlbin/hdfs oiv -i fsimage_0000000000000000087 -p XML -o fsimage.xml">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-15T16:35:09.347Z">
+<meta property="og:updated_time" content="2018-09-05T02:58:28.337Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop零碎知识点">
-<meta name="twitter:description" content="[TOC]">
+<meta name="twitter:description" content="[TOC] 查看元数据信息可以通过hdfs的一个工具来查看edits中的信息 12bin/hdfs oev -i edits -o edits.xmlbin/hdfs oiv -i fsimage_0000000000000000087 -p XML -o fsimage.xml">
     
 
     
@@ -207,7 +207,7 @@ var _hmt = _hmt || [];
         </div>
       <div class="article-info profile-block">
             <div class="article-info-block">
-                59
+                60
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -304,7 +304,7 @@ var _hmt = _hmt || [];
             <div id="toc toc-article "  class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏目录" onclick="showBtn();"><i class="fa fa-times" aria-hidden="true"></i></span>
                 <strong class="toc-title">目录</strong>
-                
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看元数据信息"><span class="toc-number">1.</span> <span class="toc-text">查看元数据信息</span></a></li></ol>
             </div>
 
 
@@ -332,7 +332,10 @@ var _hmt = _hmt || [];
              </script>
 
                 <p>[TOC]</p>
+<h2 id="查看元数据信息"><a href="#查看元数据信息" class="headerlink" title="查看元数据信息"></a>查看元数据信息</h2><p>可以通过hdfs的一个工具来查看edits中的信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bin/hdfs oev -i edits -o edits.xml</span><br><span class="line">bin/hdfs oiv -i fsimage_0000000000000000087 -p XML -o fsimage.xml</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
+
             
 
         </div>

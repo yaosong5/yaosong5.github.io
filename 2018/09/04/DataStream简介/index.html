@@ -6,22 +6,20 @@
     <meta charset="utf-8">
     
 
-    <title>ES测试命令 | 钢铁锅</title>
+    <title>钢铁锅</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="[TOC]  简单命令测试和展示es的功能">
-<meta name="keywords" content="Docker,ELK,es">
+    <meta name="description" content="纵浪大化中，不喜亦不悲">
+<meta name="keywords" content="Nothing">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES测试命令">
-<meta property="og:url" content="http://gangtieguo.cn/2018/07/10/es测试命令/index.html">
+<meta property="og:title" content="钢铁锅">
+<meta property="og:url" content="http://gangtieguo.cn/2018/09/04/DataStream简介/index.html">
 <meta property="og:site_name" content="钢铁锅">
-<meta property="og:description" content="[TOC]  简单命令测试和展示es的功能">
+<meta property="og:description" content="纵浪大化中，不喜亦不悲">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fu55ayb4i7j31kw0c73yz.jpg">
-<meta property="og:updated_time" content="2018-08-10T18:02:13.602Z">
+<meta property="og:updated_time" content="2018-09-05T02:59:06.675Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES测试命令">
-<meta name="twitter:description" content="[TOC]  简单命令测试和展示es的功能">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fu55ayb4i7j31kw0c73yz.jpg">
+<meta name="twitter:title" content="钢铁锅">
+<meta name="twitter:description" content="纵浪大化中，不喜亦不悲">
     
 
     
@@ -249,67 +247,14 @@ var _hmt = _hmt || [];
 
             
 
-            <section id="main"><article id="post-es测试命令" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-DataStream简介" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
-        
-            <header class="article-header">
-                
-    
-        <h1 class="article-title" itemprop="name">
-            ES测试命令
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/07/10/es测试命令/">
-            <time datetime="2018-07-09T16:11:03.158Z" itemprop="datePublished">2018-07-10</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/安装部署/">安装部署</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Docker/">Docker</a>, <a class="tag-link" href="/tags/ELK/">ELK</a>, <a class="tag-link" href="/tags/es/">es</a>
-    </div>
-
-                    </div>
-                
-            </header>
         
        
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-
-
-
-
-            <p class="show-toc-btn hidden" id="show-toc-btn" onclick="showToc();">
-                    <i class="fa fa-align-justify" aria-hidden="true"></i>
-                    <span class="btn-text"> 文章目录</span>
-            </p>
-
-
-            <div id="toc toc-article "  class="toc-article">
-                <span id="toc-close" class="toc-close" title="隐藏目录" onclick="showBtn();"><i class="fa fa-times" aria-hidden="true"></i></span>
-                <strong class="toc-title">目录</strong>
-                
-            </div>
-
-
             
             <script type="text/javascript">
                             function showBtn(){
@@ -333,22 +278,7 @@ var _hmt = _hmt || [];
                             };
              </script>
 
-                <p>[TOC]</p>
-<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fu55ayb4i7j31kw0c73yz.jpg" alt=""></p>
-<p>简单命令测试和展示es的功能</p>
-<a id="more"></a>
-<p>插入记录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">curl  -H &quot;Content-Type: application/json&quot;  -XPUT &apos;http://localhost:9200/store/books/1&apos; -d &apos;&#123;</span><br><span class="line"></span><br><span class="line">&quot;title&quot;: &quot;Elasticsearch: The Definitive Guide&quot;,</span><br><span class="line">&quot;name&quot; : &#123;</span><br><span class="line">    &quot;first&quot; : &quot;Zachary&quot;,</span><br><span class="line">    &quot;last&quot; : &quot;Tong&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;publish_date&quot;:&quot;2015-02-06&quot;,</span><br><span class="line">&quot;price&quot;:&quot;49.99&quot;</span><br><span class="line"></span><br><span class="line">&#125;&apos;</span><br></pre></td></tr></table></figure>
-<p>在添加一个书的信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">curl  -H &quot;Content-Type: application/json&quot;  -XPUT &apos;http://elk1:9200/store/books/2&apos; -d &apos;&#123;</span><br><span class="line">&quot;title&quot;: &quot;Elasticsearch Blueprints&quot;,</span><br><span class="line">&quot;name&quot; : &#123;</span><br><span class="line">    &quot;first&quot; : &quot;Vineeth&quot;,</span><br><span class="line">    &quot;last&quot; : &quot;Mohan&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;publish_date&quot;:&quot;2015-06-06&quot;,</span><br><span class="line">&quot;price&quot;:&quot;35.99&quot;</span><br><span class="line">&#125;&apos;</span><br></pre></td></tr></table></figure></p>
-<p>通过ID获得文档信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl   -H &quot;Content-Type: application/json&quot;  -XGET &apos;http://elk1:9200/store/books/1&apos;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">curl  -H &quot;Content-Type: application/json&quot;  -XGET &apos;http://elk1:9200/store/books/_search&apos; -d &apos;&#123;</span><br><span class="line">&quot;query&quot; : &#123;</span><br><span class="line"></span><br><span class="line">&quot;filtered&quot; : &#123;</span><br><span class="line">    &quot;query&quot; : &#123;</span><br><span class="line">        &quot;match_all&quot; : &#123;&#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;filter&quot; : &#123;</span><br><span class="line">            &quot;term&quot; : &#123;</span><br><span class="line">                &quot;price&quot; : 35.99</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;&apos;</span><br></pre></td></tr></table></figure>
-<p>在浏览</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">curl -H &quot;Content-Type: application/json&quot;  -XPUT &apos;http://elk1:9200/store/books/1&apos; -d &apos;&#123;</span><br><span class="line"></span><br><span class="line">&quot;title&quot;: &quot;Elasticsearch: The Definitive Guide&quot;,</span><br><span class="line">&quot;name&quot; : &#123;</span><br><span class="line">    &quot;first&quot; : &quot;Zachary&quot;,</span><br><span class="line">    &quot;last&quot; : &quot;Tong&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;publish_date&quot;:&quot;2015-02-06&quot;,</span><br><span class="line">&quot;price&quot;:&quot;49.99&quot;</span><br><span class="line"></span><br><span class="line">&#125;&apos;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H &quot;Content-Type: application/json&quot; -XPUT &apos;http://127.0.0.1:9200/kc22k2_test’ -d ‘</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -XPUT elk1:9200/test</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">curl -XGET &apos;http://elk1:9200/_cluster/state?pretty&apos;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;error&quot; : &#123;</span><br><span class="line"></span><br><span class="line">&quot;root_cause&quot; : [</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;type&quot; : &quot;master_not_discovered_exception&quot;,</span><br><span class="line">    &quot;reason&quot; : null</span><br><span class="line">  &#125;</span><br><span class="line">],</span><br><span class="line">&quot;type&quot; : &quot;master_not_discovered_exception&quot;,</span><br><span class="line">&quot;reason&quot; : null</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;status&quot; : 503</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+                
             
 
         </div>
@@ -426,7 +356,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 
             
     
-        <a href="http://gangtieguo.cn/2018/07/10/es测试命令/#comments" class="article-comment-link">评论</a>
+        <a href="http://gangtieguo.cn/2018/09/04/DataStream简介/#comments" class="article-comment-link">评论</a>
     
 
         </footer>
@@ -435,19 +365,10 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
         
 <nav id="article-nav">
     
-        <a href="/2018/07/10/hue搭建/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    Hue搭建
-                
-            </div>
-        </a>
     
-    
-        <a href="/2018/07/09/hadoop-spark集群搭建/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/09/04/Spark-on-Yarn源码解析(四)Spark业务代码的执行及其任务分配调度stage划分/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">Hadoop&amp;Spark组合容器的搭建</div>
+            <div class="article-nav-title">Spark-on-Yarn源码解析(四)Spark业务代码的执行及其任务分配调度stage划分</div>
         </a>
     
 </nav>
