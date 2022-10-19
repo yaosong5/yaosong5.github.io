@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://gangtieguo.cn/2018/08/13/Kafka%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
-    <lastmod>2019-07-03</lastmod>
+    <loc>http://gangtieguo.cn/2018/05/22/git%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2019-07-10</lastmod>
+  </url>  <url>
+    <loc>http://gangtieguo.cn/2018/08/15/HDFS%E5%85%83%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD%E6%B5%81%E7%A8%8B/</loc>
+    <lastmod>2019-07-05</lastmod>
+  </url>  <url>
+    <loc>http://gangtieguo.cn/2018/08/13/Kafka%E8%AF%A6%E7%BB%86%E8%A7%A3%E6%9E%90/</loc>
+    <lastmod>2019-07-04</lastmod>
   </url>  <url>
     <loc>http://gangtieguo.cn/2018/05/21/%E8%BD%AC%E7%A7%BBGithub%E5%8D%9A%E5%AE%A2%E5%88%B0%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
     <lastmod>2019-06-17</lastmod>
@@ -88,9 +94,6 @@
     <loc>http://gangtieguo.cn/2018/08/16/Hadoop%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
     <lastmod>2019-06-17</lastmod>
   </url>  <url>
-    <loc>http://gangtieguo.cn/2018/05/22/git%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2019-06-17</lastmod>
-  </url>  <url>
     <loc>http://gangtieguo.cn/2018/07/10/ES%E6%B5%8B%E8%AF%95%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2019-06-17</lastmod>
   </url>  <url>
@@ -140,9 +143,6 @@
     <lastmod>2019-03-06</lastmod>
   </url>  <url>
     <loc>http://gangtieguo.cn/2018/08/15/Hadoop-%E6%9E%84%E6%88%90%E5%8F%8AHA-/</loc>
-    <lastmod>2018-12-25</lastmod>
-  </url>  <url>
-    <loc>http://gangtieguo.cn/2018/08/15/HDFS%E5%85%83%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD%E6%B5%81%E7%A8%8B/</loc>
     <lastmod>2018-12-25</lastmod>
   </url>  <url>
     <loc>http://gangtieguo.cn/2018/08/15/Hdfs%E7%BB%93%E6%9E%84%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%8F%8A%E8%AF%BB%E5%86%99%E6%B5%81%E7%A8%8B/</loc>

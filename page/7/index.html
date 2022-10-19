@@ -295,6 +295,8 @@ var _hmt = _hmt || [];
 <p>git add .<br>git commit -m “ “<br>git push origin master<br>git push origin master -f</p>
 </blockquote>
 <h2 id="拉取"><a href="#拉取" class="headerlink" title="拉取"></a>拉取</h2><p>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;<br>如拉取远程的 master 分支到本地 wy 分支：<br>git pull origin master:wy</p>
+<h1 id="git-放弃本地修改-强制更新"><a href="#git-放弃本地修改-强制更新" class="headerlink" title="git 放弃本地修改 强制更新"></a><a href="http://www.cnblogs.com/leehongee/p/3674570.html" target="_blank" rel="noopener">git 放弃本地修改 强制更新</a></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all</span><br><span class="line">git reset --hard origin/master</span><br></pre></td></tr></table></figure>
+<p>git fetch 只是下载远程的库的内容，不做任何的合并 git reset 把HEAD指向刚刚下载的最新的版本</p>
 <h2 id="分支切换"><a href="#分支切换" class="headerlink" title="分支切换"></a>分支切换</h2><p></p>
             <p class="article-more-link">
                 <a href="/2018/05/22/git命令总结/#more">查看更多</a>
@@ -932,11 +934,13 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2019 GTG<br>
+            &copy; 2022 GTG<br>
             Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a><br>Analyse with <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1273739152'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1273739152%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 
 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1273739152'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1273739152%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+            <a href="http://www.miitbeian.gov.cn/">蜀ICP备18016875号-1</a> 
         </div>
+
     </div>
 </footer>
         

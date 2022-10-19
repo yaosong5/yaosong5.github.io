@@ -6,22 +6,23 @@
     <meta charset="utf-8">
     
 
-    <title>Kafka初步总结 | 钢铁锅</title>
+    <title>Kafka详细解析 | 钢铁锅</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="[TOC]   Kafka是一个分布式消息队列：生产者、消费者的功能。它提供了类似于JMS的特性，但是在设计实现上完全不同，此外它并不是JMS规范的实现。 Kafka对消息保存时根据Topic进行归类，发送消息者称为Producer,消息接受者称为Consumer,此外kafka集群有多个kafka实例组成，每个实例(server)成为broker。 无论是kafka集群，还是producer和c">
 <meta name="keywords" content="Kafka">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kafka初步总结">
-<meta property="og:url" content="http://gangtieguo.cn/2018/08/13/Kafka小知识点/index.html">
+<meta property="og:title" content="Kafka详细解析">
+<meta property="og:url" content="http://gangtieguo.cn/2018/08/13/Kafka详细解析/index.html">
 <meta property="og:site_name" content="钢铁锅">
 <meta property="og:description" content="[TOC]   Kafka是一个分布式消息队列：生产者、消费者的功能。它提供了类似于JMS的特性，但是在设计实现上完全不同，此外它并不是JMS规范的实现。 Kafka对消息保存时根据Topic进行归类，发送消息者称为Producer,消息接受者称为Consumer,此外kafka集群有多个kafka实例组成，每个实例(server)成为broker。 无论是kafka集群，还是producer和c">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://img.gangtieguo.cn/006tNbRwgy1fu895melcpj30zd0ckdgd.jpg">
 <meta property="og:image" content="http://img.gangtieguo.cn/0069RVTdgy1fu894keo4oj310n0hd0tv.jpg">
 <meta property="og:image" content="http://img.gangtieguo.cn/006tNbRwgy1fu89ajoxc5j30mf0fnt9d.jpg">
-<meta property="og:updated_time" content="2019-07-03T08:24:00.933Z">
+<meta property="og:image" content="http://img.gangtieguo.cn/E6C0CC9C-2AD2-4FFD-91C9-635D1E4DDB59-1.png">
+<meta property="og:updated_time" content="2019-07-04T04:46:51.548Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kafka初步总结">
+<meta name="twitter:title" content="Kafka详细解析">
 <meta name="twitter:description" content="[TOC]   Kafka是一个分布式消息队列：生产者、消费者的功能。它提供了类似于JMS的特性，但是在设计实现上完全不同，此外它并不是JMS规范的实现。 Kafka对消息保存时根据Topic进行归类，发送消息者称为Producer,消息接受者称为Consumer,此外kafka集群有多个kafka实例组成，每个实例(server)成为broker。 无论是kafka集群，还是producer和c">
 <meta name="twitter:image" content="http://img.gangtieguo.cn/006tNbRwgy1fu895melcpj30zd0ckdgd.jpg">
     
@@ -251,7 +252,7 @@ var _hmt = _hmt || [];
 
             
 
-            <section id="main"><article id="post-Kafka小知识点" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Kafka详细解析" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -259,7 +260,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            Kafka初步总结
+            Kafka详细解析
         </h1>
     
 
@@ -268,7 +269,7 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/08/13/Kafka小知识点/">
+        <a href="/2018/08/13/Kafka详细解析/">
             <time datetime="2018-08-13T06:50:40.913Z" itemprop="datePublished">2018-08-13</time>
         </a>
     </div>
@@ -308,7 +309,7 @@ var _hmt = _hmt || [];
             <div id="toc toc-article " class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏目录" onclick="showBtn();"><i class="fa fa-times" aria-hidden="true"></i></span>
                 <strong class="toc-title">目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JMS的基础"><span class="toc-number">1.</span> <span class="toc-text">JMS的基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JMS消息传输模型"><span class="toc-number">2.</span> <span class="toc-text">JMS消息传输模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#kafka是什么"><span class="toc-number">3.</span> <span class="toc-text">kafka是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Kafka核心组件"><span class="toc-number">3.1.</span> <span class="toc-text">Kafka核心组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么需要消息队列"><span class="toc-number">3.2.</span> <span class="toc-text">为什么需要消息队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#消息队列和rpc调用区别"><span class="toc-number">3.3.</span> <span class="toc-text">消息队列和rpc调用区别</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#kafka生产数据时的分组策略"><span class="toc-number">4.</span> <span class="toc-text">kafka生产数据时的分组策略</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#kafka如何保证数据的完全生产"><span class="toc-number">5.</span> <span class="toc-text">kafka如何保证数据的完全生产</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#broker如何保存数据"><span class="toc-number">6.</span> <span class="toc-text">broker如何保存数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#partition如何分布在不同的broker上"><span class="toc-number">7.</span> <span class="toc-text">partition如何分布在不同的broker上</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#consumerGroup的组员和partition之间如何做负载均衡"><span class="toc-number">8.</span> <span class="toc-text">consumerGroup的组员和partition之间如何做负载均衡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何保证kafka消费者消费数据是全局有序的"><span class="toc-number">9.</span> <span class="toc-text">如何保证kafka消费者消费数据是全局有序的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#不被完整处理，会造成结果？"><span class="toc-number">10.</span> <span class="toc-text">不被完整处理，会造成结果？</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JMS的基础"><span class="toc-number">1.</span> <span class="toc-text">JMS的基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JMS消息传输模型"><span class="toc-number">2.</span> <span class="toc-text">JMS消息传输模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#kafka是什么"><span class="toc-number">3.</span> <span class="toc-text">kafka是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Kafka核心组件"><span class="toc-number">3.1.</span> <span class="toc-text">Kafka核心组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么需要消息队列"><span class="toc-number">3.2.</span> <span class="toc-text">为什么需要消息队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#消息队列和rpc调用区别"><span class="toc-number">3.3.</span> <span class="toc-text">消息队列和rpc调用区别</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#kafka生产数据时的分组策略-partition与broker关系，分区策略"><span class="toc-number">4.</span> <span class="toc-text">kafka生产数据时的分组策略-partition与broker关系，分区策略</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#kafka如何保证数据的完全生产"><span class="toc-number">5.</span> <span class="toc-text">kafka如何保证数据的完全生产</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#broker如何保存数据"><span class="toc-number">6.</span> <span class="toc-text">broker如何保存数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#kafka的数据是如何保存到硬盘的"><span class="toc-number">7.</span> <span class="toc-text">kafka的数据是如何保存到硬盘的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#消费组组员和partition之间如何做负载均衡"><span class="toc-number">8.</span> <span class="toc-text">消费组组员和partition之间如何做负载均衡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#消息如何保证在partition内有序"><span class="toc-number">9.</span> <span class="toc-text">消息如何保证在partition内有序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何保证kafka消费者消费数据是全局有序的"><span class="toc-number">10.</span> <span class="toc-text">如何保证kafka消费者消费数据是全局有序的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#kafka为什么这么快？"><span class="toc-number">11.</span> <span class="toc-text">kafka为什么这么快？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#不被完整处理，会造成结果？"><span class="toc-number">12.</span> <span class="toc-text">不被完整处理，会造成结果？</span></a></li></ol>
             </div>
 
 
@@ -341,7 +342,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <h1 id="JMS的基础"><a href="#JMS的基础" class="headerlink" title="JMS的基础"></a>JMS的基础</h1><p>JMS是什么？：JMS是Java提供的一套技术规范</p>
 <p>JMS做什么？：用来异构系统 集成通信，缓解系统瓶颈，提高系统的伸缩性增强系统用户体验，使得系统模块化和组件化变得可行并更加灵活</p>
-<p>JMS通过什么方式：生产消费者模式（生产者、服务器、消费者）</p>
+<p>JMS通过什么方式？：生产消费者模式（生产者、服务器、消费者）</p>
 <p><img src="http://img.gangtieguo.cn/006tNbRwgy1fu895melcpj30zd0ckdgd.jpg" alt></p>
 <p>jdk，kafka，activemq……</p>
 <a id="more"></a>
@@ -374,24 +375,52 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>以下为针对Kafka的一些总结</p>
 </blockquote>
-<h1 id="kafka生产数据时的分组策略"><a href="#kafka生产数据时的分组策略" class="headerlink" title="kafka生产数据时的分组策略"></a>kafka生产数据时的分组策略</h1><p>默认是defaultPartition  Utils.abs(key.hashCode) % numPartitions上文中的key是producer在发送数据时传入的，produer.send(KeyedMessage(topic,myPartitionKey,messageContent))</p>
-<h1 id="kafka如何保证数据的完全生产"><a href="#kafka如何保证数据的完全生产" class="headerlink" title="kafka如何保证数据的完全生产"></a>kafka如何保证数据的完全生产</h1><p>ack机制：broker表示发来的数据已确认接收无误，表示数据已经保存到磁盘。有三个选项</p>
+<h1 id="kafka生产数据时的分组策略-partition与broker关系，分区策略"><a href="#kafka生产数据时的分组策略-partition与broker关系，分区策略" class="headerlink" title="kafka生产数据时的分组策略-partition与broker关系，分区策略"></a>kafka生产数据时的分组策略-partition与broker关系，分区策略</h1><ul>
+<li><p>partition与broker关系</p>
+<p>数据生产到集群中的哪一个partition，由生产者决定。</p>
+<p>通俗的说就是：默认使用hash算法，由parition的数量和broker的数量做一个hash</p>
+<p> partition的分配</p>
+<ol>
+<li>将所有Broker（假设共n个Broker）和待分配的Partition排序</li>
+<li>将第i个Partition分配到第（i mod n）个Broker上 （这个就是leader）</li>
+<li>将第i个Partition的第j个Replica分配到第（(i + j) mode n）个Broker上</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span></span><br><span class="line">list&#123;kafka01,kafka02,kafka03&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">    brIndex = i%broker;</span><br><span class="line">    hostName = list.get(brIndex)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>分区策略</p>
+<p>默认是defaultPartition</p>
+<p>Utils.abs(key.hashCode) % numPartitions </p>
+<p>key是producer在发送数据时传入的，然后发送produer.send(KeyedMessage(topic,myPartitionKey,messageContent))</p>
+<p>​</p>
+</li>
+</ul>
+<h1 id="kafka如何保证数据的完全生产"><a href="#kafka如何保证数据的完全生产" class="headerlink" title="kafka如何保证数据的完全生产"></a>kafka如何保证数据的完全生产</h1><p>Producer消息发送的应答ack机制：broker表示发来的数据已确认接收无误，表示数据已经保存到磁盘。有三个选项</p>
 <ul>
 <li>0：不等待broker返回确认消息</li>
 <li>1：等待topic中某个partition leader保存成功的状态反馈</li>
 <li>-1：等待topic中某个partition 所有副本都保存成功的状态反馈</li>
 </ul>
-<h1 id="broker如何保存数据"><a href="#broker如何保存数据" class="headerlink" title="broker如何保存数据"></a>broker如何保存数据</h1><p>在理论环境下，broker按照顺序读写的机制，可以每秒保存600M的数据。主要通过pagecache机制，尽可能的利用当前物理机器上的空闲内存来做缓存。<br>当前topic所属的broker，必定有一个该topic的partition，partition是一个磁盘目录。partition的目录中有多个segment组合(index,log)</p>
-<h1 id="partition如何分布在不同的broker上"><a href="#partition如何分布在不同的broker上" class="headerlink" title="partition如何分布在不同的broker上"></a>partition如何分布在不同的broker上</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">0</span></span><br><span class="line">list&#123;kafka01,kafka02,kafka03&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">    brIndex = i%broker;</span><br><span class="line">    hostName = list.get(brIndex)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="consumerGroup的组员和partition之间如何做负载均衡"><a href="#consumerGroup的组员和partition之间如何做负载均衡" class="headerlink" title="consumerGroup的组员和partition之间如何做负载均衡"></a>consumerGroup的组员和partition之间如何做负载均衡</h1><p>最好是一一对应，一个partition对应一个consumer,如果consumer的数量过多，必然有空闲的consumer。</p>
-<p>算法理论如下：</p>
+<h1 id="broker如何保存数据"><a href="#broker如何保存数据" class="headerlink" title="broker如何保存数据"></a>broker如何保存数据</h1><p>在理论环境下，broker按照顺序读写的机制，可以每秒保存600M的数据。主要通过pagecache机制，尽可能的利用当前物理机器上的空闲内存来做缓存。</p>
+<h1 id="kafka的数据是如何保存到硬盘的"><a href="#kafka的数据是如何保存到硬盘的" class="headerlink" title="kafka的数据是如何保存到硬盘的"></a>kafka的数据是如何保存到硬盘的</h1><p>当前topic所属的broker，必定有一个该topic的partition，partition是一个磁盘目录。partition的目录中有多个segment组合(index,log)</p>
+<p>每个topic被分为多个partition，每个partition为一个目录，partition目录的规则为topic+有序的序号，每个partition都是一个大的目录，相当于一个巨型文件被平均分配到多个大小相等segment(段)数据文件中。但每个段segment file消息数量不一定相等，这种特性方便old segment file快速被删除，<strong>默认保留7天的数据</strong>。</p>
+<p>Segment file组成：由2大部分组成，分别为index file和data file，索引文件、数据文件。索引文件存储大量元数据，数据文件存储大量消息，索引文件中元数据指向对应数据文件中message的物理偏移地址</p>
+<p>查找消息文件步骤：先通过二分查找查找到index文件，然后在通过index文件，找到log文件，在定位到偏移量文件</p>
+<h1 id="消费组组员和partition之间如何做负载均衡"><a href="#消费组组员和partition之间如何做负载均衡" class="headerlink" title="消费组组员和partition之间如何做负载均衡"></a>消费组组员和partition之间如何做负载均衡</h1><p>最好是一一对应，一个partition对应一个consumer,如果consumer的数量过多，必然有空闲的consumer。<br>算法理论如下：</p>
+<p>（消费者数量少的话：有一个内部的机制做负载均衡，就是首先有一个基数M，消费者数量除以分区数）</p>
+<p>当一个group中,有consumer加入或者离开时,会触发partitions均衡.均衡的最终目的,是提升topic的并发消费能力，步骤如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">假如topic1,具有如下partitions: P0,P1,P2,P3</span><br><span class="line">加入group中,有如下consumer: C1,C2</span><br><span class="line">首先根据partition索引号对partitions排序: P0,P1,P2,P3</span><br><span class="line">根据consumer.id排序: C0,C1</span><br><span class="line">计算倍数: M = [P0,P1,P2,P3].size / [C0,C1].size,本例值M=2(向上取整)</span><br><span class="line">然后依次分配partitions: C0 = [P0,P1],C1=[P2,P3],即Ci = [P(i * M),P((i + 1) * M -1)]</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.gangtieguo.cn/E6C0CC9C-2AD2-4FFD-91C9-635D1E4DDB59-1.png" alt="消费负载均衡"></p>
+<p>消费者通过zk记录offset来标记消费状态</p>
+<h1 id="消息如何保证在partition内有序"><a href="#消息如何保证在partition内有序" class="headerlink" title="消息如何保证在partition内有序"></a>消息如何保证在partition内有序</h1><p>partition中的每条消息都会被分配一个有序的id（offset）。kafka只保证按一个partition中的顺序将消息发给consumer，不保证一个topic的整体（多个partition间）的顺序。</p>
 <h1 id="如何保证kafka消费者消费数据是全局有序的"><a href="#如何保证kafka消费者消费数据是全局有序的" class="headerlink" title="如何保证kafka消费者消费数据是全局有序的"></a>如何保证kafka消费者消费数据是全局有序的</h1><p>如果要全局有序的，必须保证生产有序，存储有序，消费有序。<br>由于生产可以做集群，存储可以分片，消费可以设置为一个consumerGroup，要保证全局有序，就需要保证每个环节都有序。<br>只有一个可能，就是一个生产者，一个partition，一个消费者。这种场景和大数据应用场景相悖。</p>
 <ol>
 <li>生产者是集群模式–》全局序号管理器</li>
 <li>broker断只设置一个partion-》kafka的高并发下的负载均衡</li>
 <li>消费者如果是一个组，用一个线程来消费(并且自定义一个数据结构来排序)，才能保障消息有序消费来一个线程</li>
 </ol>
+<h1 id="kafka为什么这么快？"><a href="#kafka为什么这么快？" class="headerlink" title="kafka为什么这么快？"></a>kafka为什么这么快？</h1><p>首先kafka依赖于操作系统的pageCache机制，尽可能的把空闲的内存作为一个磁盘，只有发生缺页的才会放在磁盘中，那么落在磁盘上的话，还有就是采用的是sendfile机制：主要思想就是在内核中进行拷贝，再写socket流，也就是：内核-&gt;内核-&gt;socket，传统io是数据流通：内核-&gt;用户区-&gt;内核-&gt;socket流，这样就算磁盘的话，也是相当快的</p>
 <h1 id="不被完整处理，会造成结果？"><a href="#不被完整处理，会造成结果？" class="headerlink" title="不被完整处理，会造成结果？"></a>不被完整处理，会造成结果？</h1><p>是否开启ack-fail机制需要根据<strong>业务场景来</strong> 在大数据操作<strong>点击流数据</strong>基本上是不开启的，点击流日志中一条pv，uv数据丢失不会造成什么影响。</p>
 
             
@@ -471,7 +500,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 
             
     
-        <a href="http://gangtieguo.cn/2018/08/13/Kafka小知识点/#comments" class="article-comment-link">评论</a>
+        <a href="http://gangtieguo.cn/2018/08/13/Kafka详细解析/#comments" class="article-comment-link">评论</a>
     
 
         </footer>
@@ -533,11 +562,13 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2019 GTG<br>
+            &copy; 2022 GTG<br>
             Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a><br>Analyse with <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1273739152'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1273739152%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 
 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1273739152'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1273739152%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+            <a href="http://www.miitbeian.gov.cn/">蜀ICP备18016875号-1</a> 
         </div>
+
     </div>
 </footer>
         
